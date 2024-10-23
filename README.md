@@ -14,8 +14,8 @@ Blobtools requires:
 
 ### Coverage file
 The coverage file was created using minimap2 and samtools
-1. Index the assembly and align the raw reads to the assembly (minimap2.sh)
-2. Convert the file to bam format with samtools (samtools.sh)
+1. Index the assembly and align the raw reads to the assembly (`minimap2.sh`)
+2. Convert the file to bam format with samtools (`samtools.sh`)
 
 ## Blobtools
 Run `blobtoolkit.sh`. This will create a folder (BlobDir_Czoysii_assembly/) with all the information needed vor the `view` command
