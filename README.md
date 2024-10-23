@@ -21,7 +21,4 @@ The coverage file was created using minimap2 and samtools
 Run `blobtoolkit.sh`. This will create a folder (BlobDir_Czoysii_assembly/) with all the information needed vor the `view` command
 For opening the interactive page:
     blobtools view --remote BlobDir_Czoysii_assembly/ 
-This will give you as a result something like this:
-  "View dataset at http://localhost:8005/view/BlobDir_Czoysii_assembly/dataset/BlobDir_Czoysii_assembly/blob
-  For remote access use: ssh -L 8005:127.0.0.1:8005 -L 8004:127.0.0.1:8004 username@remote_host"
-To see it open a new tab, and access remotely with `ssh`, then, keeping the tab open, type the link above in any web browser. 
+To see the result interactive viewer, open a new terminal tab and access remotely with `ssh`, then, keeping the tab open, type the link in any web browser.
