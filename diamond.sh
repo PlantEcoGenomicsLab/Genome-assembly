@@ -14,14 +14,14 @@ awk -F'[| ]' '/OX=/ {for(i=1;i<=NF;i++) if($i ~ /OX=/) {split($i, a, "="); print
 module load diamond
 
 #if you are working in Homelander this step is not necessary as the uniprot_sprot.taxids.dmnd is already present
-/home/gsingh/tools/diamond/diamond makedb \
+/home/apasinato/tools/diamond/diamond makedb \
         --in /home/gsingh/campanula_saxifraga/swissprot/uniprot_sprot.fasta \
         --taxonmap /home/gsingh/campanula_saxifraga/swissprot/swissprot.taxid_map \
         --taxonnodes /home/gsingh/tools/taxdump/nodes.dmp \
         --db swissprot.taxids.dmnd &
 
 #run diamond on the assembly
-/home/gsingh/tools/diamond/diamond blastx \
+/home/apasinato/tools/diamond/diamond blastx \
         --query  CZoysii_purgedups2.asm.bp.hap1.p_ctg.fasta \
         --db swissprot.taxids.dmnd \
         --outfmt 6 qseqid staxids bitscore qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue \
