@@ -1,0 +1,15 @@
+cat Campanula_carpatica_chloroplast.fasta  Campanula_pallida_chloroplast.fasta Campanula_punctata_plastid.fasta Campanula_takesimana_chloroplast.fasta  Campanula_zangezura_chloroplast.fasta > Campanula_5sp_plastid.fasta
+
+#predict genes from the concatenated genomes
+  module load prodigal
+prodigal -i  Campanula_5sp_plastid.fna -a Campanula_5sp_plastid_proteins.faa -d Campanula_5sp_plastid_predicted_genes.fna
+
+#create the mapping file for taxifying the database
+  #first Extract the Accessions from the Headers
+  perl -lane 'if(/^>(\w+\.\d+)_/){print "$1"}' Campanula_5sp_plastid_proteins.faa > camp_accessions.txt
+
+  #then Map Accessions to TaxIDs retrieved from NCBI accession2taxid (ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/prot.accession2taxid.FULL.gz)
+  zgrep -Ff camp_accessions.txt prot.accession2taxid.gz | awk '{print $1, $3}' > Campanula_5sp_plastid.taxlist
+
+
+  
