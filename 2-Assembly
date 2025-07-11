@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#ASSEMBLY hifiasm
+/data/fdalgrande_data/tools/hifiasm -o Species.asm -t 32 HiFi_reads.quality_fil.fastq 2> hifiasm.log &
+#For polyploid species use --primary
+#CHECK in the log file if the homozygous peak corresponds to the one identified by Genomescope2.0. If not use the flag --hom-cov
+
+#The FASTA file can be produced from GFA as follows:
+awk '/^S/{print ">"$2;print $3}' Species.asm.a_ctg.gfa > Species.asm.a_ctg.fa &
+awk '/^S/{print ">"$2;print $3}' Species.asm.p_ctg.gfa > Species.asm.p_ctg.fa &
